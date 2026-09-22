@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resultado do Sorteo - Ulloa Viva</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Resultado do Sorteo</h1>
+        <h2>Plataforma Ulloa Viva</h2>
+
+        <article>
+            <header>A Xunta Electoral queda configurada da seguinte maneira:</header>
+            
+            {% for posto in xunta %}
+                <details open>
+                    <summary><strong>{{ posto.cargo }}</strong></summary>
+                    <ul>
+                        <li>
+                            <mark>Titular:</mark> 
+                            Socio/a nº {{ posto.principal.numero }} - 
+                            <strong>{{ posto.principal.nome }} {{ posto.principal.apelidos }}</strong>
+                        </li>
+                        {% for suplente in posto.suplentes %}
+                            <li>
+                                <em>Suplente {{ loop.index }}:</em> 
+                                Socio/a nº {{ suplente.numero }} - 
+                                {{ suplente.nome }} {{ suplente.apelidos }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </details>
+            {% endfor %}
+        </article>
+
+        <a href="/" role="button" class="outline">Volver e facer outro sorteo</a>
+    </main>
+</body>
+</html>

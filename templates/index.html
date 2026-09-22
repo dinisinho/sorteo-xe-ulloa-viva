@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sorteo Xunta Electoral - Ulloa Viva</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Sorteo Xunta Electoral</h1>
+        <h2>Plataforma Ulloa Viva</h2>
+        
+        {% if erro %}
+            <article style="background-color: #f7d4d4; color: #721c24;">
+                <strong>{{ erro }}</strong>
+            </article>
+        {% endif %}
+
+        <article>
+            <p>O ficheiro CSV debe conter os datos en tres columnas: <strong>Número de socio, Nome e Apelidos</strong>.</p>
+            
+            <form method="POST" enctype="multipart/form-data">
+                <label for="csv_file">Ficheiro de socios (CSV):</label>
+                <input type="file" name="csv_file" id="csv_file" accept=".csv" required>
+
+                <div class="grid">
+                    <div>
+                        <label for="postos">Nomes dos postos (un por liña):</label>
+                        <textarea name="postos" id="postos" rows="5" placeholder="Presidencia&#10;Secretaría&#10;Tesourería&#10;Vogalía 1&#10;Vogalía 2" required></textarea>
+                    </div>
+                    <div>
+                        <label for="num_suplentes">Suplentes <em>por cada posto</em>:</label>
+                        <input type="number" name="num_suplentes" id="num_suplentes" value="3" min="0" required>
+                    </div>
+                </div>
+
+                <button type="submit">Facer o Sorteo</button>
+            </form>
+        </article>
+    </main>
+</body>
+</html>
