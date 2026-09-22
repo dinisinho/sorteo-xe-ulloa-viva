@@ -6,6 +6,23 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Resultado do Sorteo - Ulloa Viva</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body {
+            padding-bottom: 4rem; 
+        }
+        .pe-fixo {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--background-color);
+            border-top: 1px solid var(--muted-border-color);
+            text-align: center;
+            padding: 0.75rem;
+            font-size: 0.85rem;
+            z-index: 100;
+        }
+    </style>
 </head>
 <body>
     <main class="container">
@@ -38,7 +55,7 @@
 
         <a href="/" role="button" class="outline">Volver e facer outro sorteo</a>
     </main>
-    <footer class="container" style="text-align: center; margin-top: 2rem; font-size: 0.85rem; opacity: 0.8;">
+    <footer class="pe-fixo">
         <small>código verificable en <a href="https://github.com/dinisinho/sorteo-xe-ulloa-viva" target="_blank" rel="noopener noreferrer">https://github.com/dinisinho/sorteo-xe-ulloa-viva</a></small>
     </footer>
 </body>
